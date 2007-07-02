@@ -5,7 +5,6 @@
 * Clean up jesus module to not have footnotes
 * Stock module can now do mutual funds
 
-
 1.0.2: Sat Jun 30 22:32:09 PDT 2007
 
 * Refactor module API to expose more data to the extensions
@@ -14,3 +13,13 @@
 * Added some startup verbosity
 * Listed a description of all base modules in config
 * Allow modules to be disabled in config file
+
+1.0.3: Sun Jul  1 19:27:09 PDT 2007
+
+* A bunch of necessary code cleanup to the module framework
+* Rewrote the Config class to be more efficient
+* Added -v flag for verbosity when executed in a console
+* Fixed grufti from triggering on substring matches
+* Grufti module now precompiles regexes at loadtime
+
+ 
