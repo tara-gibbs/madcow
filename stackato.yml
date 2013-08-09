@@ -1,0 +1,21 @@
+name: madcow
+mem: 128M
+framework:
+  type: standalone
+  runtime: python27
+services:
+  data: filesystem
+command: build/scripts-2.7/madcow -b data
+ignores: ["~*/", ".git/", "data/db", "data/log"]
+
+hooks:
+  post-staging:
+    # create db directory
+    - mkdir -p "$STACKATO_FILESYSTEM"/db
+    # link to data/db folder in the shared filesystem
+    - ln -s "$STACKATO_FILESYSTEM"/db data/db
+    # create db directory
+    - mkdir -p "$STACKATO_FILESYSTEM"/log
+    # link to data/db folder in the shared filesystem
+    - ln -s "$STACKATO_FILESYSTEM"/log data/log
+    - python setup.py build
